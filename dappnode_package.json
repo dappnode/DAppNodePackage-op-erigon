@@ -1,0 +1,44 @@
+{
+  "name": "op-geth.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "upstreamVersion": "v1.101105.3",
+  "upstreamRepo": "ethereum-optimism/op-geth",
+  "upstreamArg": "UPSTREAM_VERSION",
+  "shortDescription": "Geth execution client for Optimism",
+  "description": "minimal fork of the official `go-ethereum` responsible for executing the blocks it receives from the rollup node and storing state. It also exposes standard JSON-RPC methods to query blockchain data and submit transactions to the network.",
+  "type": "service",
+  "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
+  "categories": ["Blockchain"],
+  "keywords": ["optimism", "geth", "blockchain", "client"],
+  "architectures": ["linux/amd64", "linux/arm64"],
+  "links": {
+    "homepage": "https://github.com/dappnode/DAppNodePackage-op-geth#readme",
+    "api": "http://op-geth.dappnode:8545",
+    "engineAPI": "http://op-geth.dappnode:8551"
+  },
+  "exposable": [
+    {
+      "name": "OP Geth JSON-RPC (HTTP)",
+      "description": "HTTP-JSON-RPC endpoint for OP",
+      "serviceName": "op-geth",
+      "port": 8545
+    },
+    {
+      "name": "OP Geth JSON-RPC (WS)",
+      "description": "WS-JSON-RPC endpoint for OP",
+      "serviceName": "op-geth",
+      "port": 8546
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dappnode/DAppNodePackage-op-geth.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dappnode/DAppNodePackage-op-geth/issues"
+  },
+  "license": "GPL-3.0",
+  "requirements": {
+    "minimumDappnodeVersion": "0.2.50"
+  }
+}
