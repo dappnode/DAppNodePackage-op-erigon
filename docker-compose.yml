@@ -1,21 +1,18 @@
 version: "3.5"
 services:
-  geth:
+  erigon:
     build:
-      context: op-geth
+      context: op-erigon
       args:
-        UPSTREAM_VERSION: v1.101105.3
+        UPSTREAM_VERSION: v2.48.1-0.1.10 
     volumes:
       - "data:/data"
     restart: unless-stopped
     environment:
-      - EXTRA_FLAGS
-      - P2P_PORT=33141
-      - SYNCMODE=snap
+      - EXTRA_FLAGS=--http.api=engine,eth,erigon,web3,net,debug,trace,txpool
+      - P2P_PORT=30505
       - "HISTORICAL_RPC_URL=http://op-l2geth.dappnode:8545"
-      - "SEQUENCER_HTTP_URL=https://bedrock-beta-1-sequencer.optimism.io"
+      - "SEQUENCER_HTTP_URL=https://mainnet-sequencer.optimism.io"
       - ENABLE_HISTORICAL_RPC=true
-      - GENESIS_MODE=PresyncedDatabase
-    image: "geth.op-geth.dnp.dappnode.eth:0.1.0"
 volumes:
   data: {}

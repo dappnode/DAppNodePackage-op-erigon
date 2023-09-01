@@ -1,41 +1,35 @@
 {
-  "name": "op-geth.dnp.dappnode.eth",
+  "name": "op-erigon.dnp.dappnode.eth",
   "version": "0.1.0",
-  "upstreamVersion": "v1.101105.3",
-  "upstreamRepo": "ethereum-optimism/op-geth",
+  "upstreamVersion": "v2.48.1-0.1.10",
+  "upstreamRepo": "testinprod-io/op-erigon",
   "upstreamArg": "UPSTREAM_VERSION",
-  "shortDescription": "Geth execution client for Optimism",
-  "description": "minimal fork of the official `go-ethereum` responsible for executing the blocks it receives from the rollup node and storing state. It also exposes standard JSON-RPC methods to query blockchain data and submit transactions to the network.",
+  "shortDescription": "Erigon execution client for Optimism",
+  "description": "Minimal fork of Erigon, responsible for executing the blocks it receives from the rollup node and storing state. It also exposes standard JSON-RPC methods to query blockchain data and submit transactions to the network.",
   "type": "service",
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "categories": ["Blockchain"],
-  "keywords": ["optimism", "geth", "blockchain", "client"],
+  "keywords": ["optimism", "erigon", "blockchain", "client"],
   "architectures": ["linux/amd64", "linux/arm64"],
   "links": {
-    "homepage": "https://github.com/dappnode/DAppNodePackage-op-geth#readme",
-    "api": "http://op-geth.dappnode:8545",
-    "engineAPI": "http://op-geth.dappnode:8551"
+    "homepage": "https://github.com/dappnode/DAppNodePackage-op-erigon#readme",
+    "api": "http://op-erigon.dappnode:8545",
+    "engineAPI": "http://op-erigon.dappnode:8551"
   },
   "exposable": [
     {
-      "name": "OP Geth JSON-RPC (HTTP)",
-      "description": "HTTP-JSON-RPC endpoint for OP",
-      "serviceName": "op-geth",
+      "name": "OP Erigon JSON-RPC (HTTP+WS)",
+      "description": "HTTP+WS JSON-RPC endpoint for OP",
+      "serviceName": "op-erigon",
       "port": 8545
-    },
-    {
-      "name": "OP Geth JSON-RPC (WS)",
-      "description": "WS-JSON-RPC endpoint for OP",
-      "serviceName": "op-geth",
-      "port": 8546
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dappnode/DAppNodePackage-op-geth.git"
+    "url": "https://github.com/dappnode/DAppNodePackage-op-erigon.git"
   },
   "bugs": {
-    "url": "https://github.com/dappnode/DAppNodePackage-op-geth/issues"
+    "url": "https://github.com/dappnode/DAppNodePackage-op-erigon/issues"
   },
   "license": "GPL-3.0",
   "requirements": {

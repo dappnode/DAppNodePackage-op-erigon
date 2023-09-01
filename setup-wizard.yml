@@ -10,13 +10,3 @@ fields:
     enum:
       - "true"
       - "false"
-  - id: genesis_mode
-    target:
-      type: environment
-      name: GENESIS_MODE
-    title: Select Genesis Mode
-    description: >-
-      If set to `GenesisFile` then the OP-node will use the genesis file to start the blockchain. If set to `PresyncedDatabase` then the OP-node will download a presynced database from the OP server to start the blockchain.
-    enum:
-      - "GenesisFile"
-      - "PresyncedDatabase"
