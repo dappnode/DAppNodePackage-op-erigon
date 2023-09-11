@@ -25,7 +25,7 @@ else
   wget -O /mainnet_data.tar.gz https://op-erigon-backup.mainnet.testinprod.io
 
   echo "[INFO - entrypoint] Decompressing preloaded data. This can take a while..."
-  tar -zxvf /mainnet_data.tar.gz - -C $DATA_DIR
+  tar -zxvf /mainnet_data.tar.gz -C $DATA_DIR
 
   rm -rf /mainnet_data.tar.gz
 fi
