@@ -4,15 +4,16 @@ services:
     build:
       context: op-erigon
       args:
-        UPSTREAM_VERSION: v2.48.1-0.1.10 
+        UPSTREAM_VERSION: v2.48.1-0.1.10
     volumes:
       - "data:/data"
     restart: unless-stopped
     environment:
-      - EXTRA_FLAGS=--http.api=engine,eth,erigon,web3,net,debug,trace,txpool
+      - "EXTRA_FLAGS=--http.api=engine,eth,erigon,web3,net,debug,trace,txpool"
       - P2P_PORT=30505
       - "HISTORICAL_RPC_URL=http://op-l2geth.dappnode:8545"
       - "SEQUENCER_HTTP_URL=https://mainnet-sequencer.optimism.io"
       - ENABLE_HISTORICAL_RPC=true
+    image: "erigon.op-erigon.dnp.dappnode.eth:0.1.0"
 volumes:
   data: {}
