@@ -38,7 +38,7 @@
   "globalEnvs": [
     {
       "envs": ["OP_ENABLE_HISTORICAL_RPC"],
-      "services": ["geth"]
+      "services": ["erigon"]
     }
   ]
 }
