@@ -13,7 +13,6 @@ services:
       - P2P_PORT=30505
       - "HISTORICAL_RPC_URL=http://op-l2geth.dappnode:8545"
       - "SEQUENCER_HTTP_URL=https://mainnet-sequencer.optimism.io"
-      - ENABLE_HISTORICAL_RPC=true
     image: "erigon.op-erigon.dnp.dappnode.eth:0.1.0"
 volumes:
   data: {}

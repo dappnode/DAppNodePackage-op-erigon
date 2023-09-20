@@ -7,7 +7,7 @@ DATA_DIR=/data
 # Tx pool gossip is disabled as it is not supported yet
 # Max peers set to 0 to disable peer discovery (will be enabled in the future for snap sync)
 
-if [ "$ENABLE_HISTORICAL_RPC" = "true" ]; then
+if [ "$_DAPPNODE_GLOBAL_OP_ENABLE_HISTORICAL_RPC" = "true" ]; then
   echo "[INFO - entrypoint] Enabling historical RPC"
   EXTRA_FLAGS="--rollup.historicalrpc $HISTORICAL_RPC_URL"
 fi

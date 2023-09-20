@@ -34,5 +34,11 @@
   "license": "GPL-3.0",
   "requirements": {
     "minimumDappnodeVersion": "0.2.50"
-  }
+  },
+  "globalEnvs": [
+    {
+      "envs": ["OP_ENABLE_HISTORICAL_RPC"],
+      "services": ["geth"]
+    }
+  ]
 }
