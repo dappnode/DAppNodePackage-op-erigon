@@ -31,7 +31,7 @@ else
 fi
 
 echo "[INFO - entrypoint] Starting Erigon"
-exec erigon --datadir=${DATADIR} \
+exec erigon --datadir=${DATA_DIR} \
   --rollup.sequencerhttp=${SEQUENCER_HTTP_URL} \
   --rollup.disabletxpoolgossip=true \
   --nodiscover \
