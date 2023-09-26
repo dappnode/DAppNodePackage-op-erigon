@@ -7,6 +7,7 @@
   "shortDescription": "Erigon execution client for Optimism",
   "description": "Minimal fork of Erigon, responsible for executing the blocks it receives from the rollup node and storing state. It also exposes standard JSON-RPC methods to query blockchain data and submit transactions to the network.",
   "type": "service",
+  "chain": "ethereum",
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "categories": ["Blockchain"],
   "keywords": ["optimism", "erigon", "blockchain", "client"],
