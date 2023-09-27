@@ -33,7 +33,7 @@
   },
   "license": "GPL-3.0",
   "requirements": {
-    "minimumDappnodeVersion": "0.2.50"
+    "minimumDappnodeVersion": "0.2.80"
   },
   "globalEnvs": [
     {
