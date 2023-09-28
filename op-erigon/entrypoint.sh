@@ -18,11 +18,15 @@ if [ "$(ls -A $DATA_DIR)" ]; then
   echo "[INFO - entrypoint] Database already exists, skipping initialization"
 else
 
+  echo "[INFO - entrypoint] Database does not exist, initializing erigon..."
+
   # Before starting the download, check if a partial file exists.
   if [ -f "$PRELOADED_DATA_FILE" ]; then
     echo "[WARNING - entrypoint] Found a partial preloaded data file. Removing it..."
     rm -f $PRELOADED_DATA_FILE
   fi
+
+  echo "[INFO - entrypoint] Downloading preloaded data. This can take hours..."
 
   # Start the download.
   wget -O $PRELOADED_DATA_FILE https://op-erigon-backup.mainnet.testinprod.io
