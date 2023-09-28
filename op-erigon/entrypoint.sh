@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DATA_DIR=/data
+DATA_DIR=/database
 PRELOADED_DATA_FILE=/mainnet_data.tar.gz
 
 # Configuration defined in https://github.com/testinprod-io/op-erigon#readme
@@ -32,7 +32,7 @@ else
   fi
 
   echo "[INFO - entrypoint] Decompressing preloaded data. This can take a while..."
-  tar -zxvf $PRELOADED_DATA_FILE -C $DATA_DIR
+  tar -zxvf $PRELOADED_DATA_FILE -C / # /database is created here
   if [ $? -ne 0 ]; then
     echo "[ERROR - entrypoint] Failed to decompress preloaded data."
     rm -f $PRELOADED_DATA_FILE # Remove the faulty file
