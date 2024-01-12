@@ -4,7 +4,7 @@ services:
     build:
       context: op-erigon
       args:
-        UPSTREAM_VERSION: v2.48.1-0.2.0
+        UPSTREAM_VERSION: v2.51.0-0.3.0
     volumes:
       - "data:/data"
     restart: unless-stopped
