@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DATA_DIR=/database
+DATADIR="/home/op-erigon/.local/share/"
 PRELOADED_DATA_FILE=/mainnet_data.tar.gz
 
 # Configuration defined in https://github.com/testinprod-io/op-erigon#readme
@@ -10,11 +10,11 @@ PRELOADED_DATA_FILE=/mainnet_data.tar.gz
 
 if [ "$_DAPPNODE_GLOBAL_OP_ENABLE_HISTORICAL_RPC" = "true" ]; then
   echo "[INFO - entrypoint] Enabling historical RPC"
-  EXTRA_FLAGS="--rollup.historicalrpc $HISTORICAL_RPC_URL"
+  EXTRA_OPTs="$EXTRA_OPTs --rollup.historicalrpc $HISTORICAL_RPC_URL"
 fi
 
 # If $DATA_DIR is not empty, then erigon is already initialized
-if [ "$(ls -A $DATA_DIR)" ]; then
+if [ -d "${DATADIR}/database" ]; then
   echo "[INFO - entrypoint] Database already exists, skipping initialization"
 else
 
@@ -36,7 +36,7 @@ else
   fi
 
   echo "[INFO - entrypoint] Decompressing preloaded data. This can take a while..."
-  tar -zxvf $PRELOADED_DATA_FILE -C / # /database is created here
+  tar -zxvf $PRELOADED_DATA_FILE -C $DATADIR # /database is created here, as the preloaded data file is database/chaindata.
   if [ $? -ne 0 ]; then
     echo "[ERROR - entrypoint] Failed to decompress preloaded data."
     rm -f $PRELOADED_DATA_FILE # Remove the faulty file
@@ -48,14 +48,15 @@ else
 fi
 
 echo "[INFO - entrypoint] Starting Erigon"
-exec erigon --datadir=${DATA_DIR} \
+exec erigon --datadir=${DATADIR}/database \
   --rollup.sequencerhttp=${SEQUENCER_HTTP_URL} \
   --rollup.disabletxpoolgossip=true \
+  --maxpeers=0 \
   --nodiscover \
   --http.addr=0.0.0.0 \
   --http.port=8545 \
-  --http.corsdomain="*" \
-  --http.vhosts="*" \
+  --http.corsdomain='*' \
+  --http.vhosts='*' \
   --ws \
   --private.api.addr=0.0.0.0:9090 \
   --metrics \
@@ -63,8 +64,8 @@ exec erigon --datadir=${DATA_DIR} \
   --metrics.port=6060 \
   --port=${P2P_PORT} \
   --authrpc.jwtsecret=/config/jwtsecret.hex \
-  --authrpc.addr 0.0.0.0 \
-  --authrpc.vhosts=* \
+  --authrpc.addr=0.0.0.0 \
+  --authrpc.vhosts='*' \
   --authrpc.port=8551 \
-  --chain=optimism-mainnet \
-  ${EXTRA_FLAGS}
+  --chain=op-mainnet \
+  ${EXTRA_OPTs}
