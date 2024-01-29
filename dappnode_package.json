@@ -1,7 +1,7 @@
 {
   "name": "op-erigon.dnp.dappnode.eth",
   "version": "0.1.1",
-  "upstreamVersion": "2.51.0-0.3.1",
+  "upstreamVersion": "v2.53.4-0.3.1",
   "upstreamRepo": "testinprod-io/op-erigon",
   "upstreamArg": "UPSTREAM_VERSION",
   "shortDescription": "Erigon execution client for Optimism",
