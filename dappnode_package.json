@@ -7,6 +7,7 @@
   "shortDescription": "Erigon execution client for Optimism",
   "description": "Minimal fork of Erigon, responsible for executing the blocks it receives from the rollup node and storing state. It also exposes standard JSON-RPC methods to query blockchain data and submit transactions to the network.",
   "type": "service",
+  "mainService": "erigon",
   "chain": "ethereum",
   "author": "DAppNode Association <admin@dappnode.io> (https://github.com/dappnode)",
   "categories": ["Blockchain"],
@@ -15,13 +16,13 @@
   "links": {
     "homepage": "https://github.com/dappnode/DAppNodePackage-op-erigon#readme",
     "api": "http://op-erigon.dappnode:8545",
-    "engineAPI": "http://op-erigon.dappnode:8551"
+    "engineAPI": "ws://op-erigon.dappnode:8551"
   },
   "exposable": [
     {
       "name": "OP Erigon JSON-RPC (HTTP+WS)",
-      "description": "HTTP+WS JSON-RPC endpoint for OP",
-      "serviceName": "op-erigon",
+      "description": "HTTP+WS JSON-RPC endpoint for OP-Erigon",
+      "serviceName": "erigon",
       "port": 8545
     }
   ],
