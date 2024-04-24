@@ -50,7 +50,7 @@ fi
 echo "[INFO - entrypoint] Starting Erigon"
 exec erigon --datadir=${DATADIR}/database \
   --rollup.sequencerhttp=${SEQUENCER_HTTP_URL} \
-  --rollup.disabletxpoolgossip=true \
+  --txpool.gossip.disable=true \
   --maxpeers=0 \
   --nodiscover \
   --http.addr=0.0.0.0 \
@@ -68,4 +68,5 @@ exec erigon --datadir=${DATADIR}/database \
   --authrpc.vhosts='*' \
   --authrpc.port=8551 \
   --chain=op-mainnet \
+  --db.size.limit=8TB \
   ${EXTRA_OPTs}
