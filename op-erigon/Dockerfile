@@ -1,6 +1,6 @@
 ARG UPSTREAM_VERSION
 
-FROM testinprod/op-erigon:${UPSTREAM_VERSION}-amd64 as production
+FROM testinprod/op-erigon:${UPSTREAM_VERSION} as production
 
 RUN apk update && apk add wget && apk add zstd
 
