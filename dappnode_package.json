@@ -51,8 +51,12 @@
   },
   "shortDescription": "Erigon execution client for Optimism",
   "type": "service",
-  "upstreamArg": "UPSTREAM_VERSION",
-  "upstreamRepo": "testinprod-io/op-erigon",
-  "upstreamVersion": "v2.61.3-0.10.1",
+  "upstream": [
+    {
+      "repo": "testinprod-io/op-erigon",
+      "version": "v2.61.3-0.10.1",
+      "arg": "UPSTREAM_VERSION"
+    }
+  ],
   "version": "0.1.2"
 }
